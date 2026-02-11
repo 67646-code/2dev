@@ -16,7 +16,7 @@ public class Contact {
     }
 
     String getFullName() {
-        return this.name + this.firstName;
+        return this.name + " " + this.firstName;
     }
 
     void setPhone(int phone) {
