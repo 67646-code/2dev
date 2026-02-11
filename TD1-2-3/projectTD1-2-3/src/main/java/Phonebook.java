@@ -18,6 +18,7 @@ public class Phonebook {
     void display(){
         for (Contact c : this.contacts){
             System.out.println(c.getFullName());
+            System.out.println(c.address);
         }
     }
 }
