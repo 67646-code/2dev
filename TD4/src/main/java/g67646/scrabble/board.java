@@ -16,10 +16,13 @@ public class board {
         Letter[][] squares = new Letter[15][15];
     }
 
-    /*public Letter getLetter(int row, int col){
+    /* Inutile
+
+    public Letter getLetter(int row, int col){
         return squares[row][col];
     }
     */
+
     public boolean isBoxFree(int row, int col){
         return squares[row][col] == null ;
     }
@@ -45,14 +48,14 @@ public class board {
             return false ;
         }
     }
-
-
+    
     public void setLetters(int row, int col, Direction d,Letter[] letters){
         if (isRowColFree(letters, row, col,d)){
-            for ()
+            for (int i=0 ; i<letters.length ; i++){
+                squares[row][col] = letters[i];
+                row += 1;
+                col += 1;
+            }
         }
-        /* in letter[x][y] put 'a' and other will follow afou
-        /* if row or collum not free or 'a'[][] - row or collum = -0  dont do the action
-         */
     }
 }
