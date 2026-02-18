@@ -1,6 +1,6 @@
 package g67646.scrabble;
 
-public class board {
+public class Board {
     private Letter[][] squares;
 
 
@@ -12,7 +12,7 @@ public class board {
             return 0;
         }
     }
-    public board(){
+    public Board(){
         Letter[][] squares = new Letter[15][15];
     }
 
@@ -31,7 +31,7 @@ public class board {
         if (d == Direction.horizontal) {
             int i = 0;
             while (i < letters.length && isBoxFree(row, col)) {
-                row += 1;
+                col += 1;
                 i += 1;
             }
             return i == letters.length-1;
@@ -39,7 +39,7 @@ public class board {
         } else if (d == Direction.vertical) {
             int i = 0;
             while (i < letters.length && isBoxFree(row, col)) {
-                col += 1;
+                row += 1;
                 i += 1;
             }
             return i == letters.length-1;
@@ -49,12 +49,16 @@ public class board {
         }
     }
     
-    public void setLetters(int row, int col, Direction d,Letter[] letters){
+    public void setLetters(int row, int col, Direction d, Letter[] letters){
         if (isRowColFree(letters, row, col,d)){
             for (int i=0 ; i<letters.length ; i++){
                 squares[row][col] = letters[i];
-                row += 1;
-                col += 1;
+                if (d == Direction.horizontal){
+                    col += 1;
+                }
+                else {
+                    row += 1;
+                }
             }
         }
     }
