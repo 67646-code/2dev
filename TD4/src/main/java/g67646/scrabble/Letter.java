@@ -3,22 +3,24 @@ package g67646.scrabble;
 public class Letter {
     private char letter;
     private int nmb;
-    private int Value;
+    private int value;
 
 
     public Letter(char letter, int nmb, int Value){
         this.nmb = nmb;
         this.letter = letter;
-        this.Value = Value;
+        this.value = Value;
     }
 
-    public static char getLetter(){
+    public char getLetter(){
         return this.letter;
     }
 
-    public static int getNmb(){
+    public int getNmb(){
         return this.nmb;
     }
 
-
+    public int getValue(){
+        return this.value;
+    }
 }

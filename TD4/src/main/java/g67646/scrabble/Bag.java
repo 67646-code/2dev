@@ -38,24 +38,23 @@ public class Bag {
     }
 
     private int getnmb(Letter oneLetter){
-        return this.nmb;
+        return oneLetter.getNmb();
     }
 
     private void addByIndexValue(){
-        indice = 0;
         for (int i=0; i<alphabet.size();i++){
-            addInMyBag(alphabet.get(indice));
+            addInMyBag(alphabet.get(i));
         }
     }
 
     private void addInMyBag(Letter oneLetter){
         for (int i=0; i<getnmb(oneLetter);i++){
-            myBagOfLetters.add(alphabet.get(indice));
+            myBagOfLetters.add(oneLetter);
         }
     }
 
     public Bag(){
         myBagOfLetters = new ArrayList<>();
-
     }
+
 }
