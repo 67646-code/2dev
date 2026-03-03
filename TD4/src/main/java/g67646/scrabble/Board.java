@@ -5,18 +5,17 @@ public class Board {
 
 
     int getValidRowCol(int x){
-        if (x<0 && x<15){
+        if (x>=0 && x<15){
         return x;
         }
         else{
             return 0;
         }
     }
+
     public Board(){
         this.squares = new Letter[15][15];
     }
-
-    // Inutile
 
     public Letter get(int row, int col){
         return squares[row][col];
@@ -38,15 +37,15 @@ public class Board {
                 if (!isBoxFree(row, col +i)) {
                     return false;
                 }
-                return true;
             }
+            return true;
         } else if (d == Direction.VERTICAL) {
             for (int i = 0; i < letters.length; i++) {
                 if (!isBoxFree(row +i, col)) {
                     return false;
                 }
-                return true;
             }
+            return true;
         }
         return false;
     }
@@ -55,14 +54,12 @@ public class Board {
         if (isRowColPossible(letters.length, row, col,d) && isRowColFree(letters, row, col,d)){
             if (d == Direction.HORIZONTAL) {
                 for (int i = 0; i < letters.length; i++) {
-                    squares[row][col] = letters[i];
-                    col += 1;
+                    squares[row][col+i] = letters[i];
                 }
             }
             else{
                 for (int i=0 ; i<letters.length ; i++){
-                    squares[row][col] = letters[i];
-                    row += 1;
+                    squares[row+i][col] = letters[i];
                 }
             }
         }

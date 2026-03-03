@@ -6,10 +6,10 @@ public class Bag {
     public int indice;
     public int nmb;
     public Letter oneLetter;
-    private ArrayList<Letter> alphabet;
-    private List<Letter> myBagOfLetters;
+    public static ArrayList<Letter> alphabet;
+    public static List<Letter> myBagOfLetters;
 
-    private void getAlphabet(){
+    public void getAlphabet(){
         alphabet.add(new Letter('a',9,1));
         alphabet.add(new Letter('b',2,3));
         alphabet.add(new Letter('c',2,3));
@@ -41,7 +41,7 @@ public class Bag {
         return oneLetter.getNmb();
     }
 
-    private void addByIndexValue(){
+    public void addByIndexValue(){
         for (int i=0; i<alphabet.size();i++){
             addInMyBag(alphabet.get(i));
         }
@@ -54,7 +54,28 @@ public class Bag {
     }
 
     public Bag(){
+        alphabet = new ArrayList<>();
         myBagOfLetters = new ArrayList<>();
+        getAlphabet();
+        addByIndexValue();
     }
 
+    public int getRandom() {
+        Collections.shuffle(myBagOfLetters);
+        return (int) (myBagOfLetters.size() * Math.random());
+    }
+
+    public Letter draw(){
+        Letter drawedLetter = myBagOfLetters.get(getRandom());
+        myBagOfLetters.remove(drawedLetter);
+        return drawedLetter;
+    }
+
+    public List<Letter> draw(int n) {
+        List<Letter> drawedLetter = new ArrayList<>();
+        for (int i=0;i<n;i++){
+            drawedLetter.add(draw());
+        }
+        return drawedLetter;
+    }
 }
