@@ -1,13 +1,11 @@
-import static java.lang.Math.random;
-
-public class dog {
+public class Dog {
     String name;
     int weight;
     boolean hungry = false;
     boolean injured = false;
     int randomx;
 
-    dog(String name, int weight) {
+    Dog(String name, int weight) {
         this.name = name;
         this.weight = weight;
         this.hungry = isHungry();
@@ -22,7 +20,7 @@ public class dog {
             throw new IllegalStateException(this.name + " a faim !");
         }
         else if (injured){
-            throw new IllegalStateException(" on fait pas courir un chien qui en cache un autre ");
+            throw new IllegalStateException(" on fait pas courir un chien blessé");
         }
         else {
             System.out.println(this.name + " court comme un fou !");
@@ -52,7 +50,7 @@ public class dog {
         }
     }
 
-    void multiplebarks(int x) {
+    void multipleBarks(int x) {
         if (0 > x) {
             throw new IllegalArgumentException(this.name + " ne peux pas aboyer à l'envers !!!");
         } else {
@@ -60,5 +58,16 @@ public class dog {
                 this.bark();
             }
         }
+    }
+    String sound() {
+        if (this.weight < 10) {
+             return "Yip yip";
+             }
+        else if (this.weight <= 30) {
+             return "Wouf";
+             }
+        else {
+             return "WOUUUF";
+             }
     }
 }

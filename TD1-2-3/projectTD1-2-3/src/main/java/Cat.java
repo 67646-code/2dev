@@ -1,9 +1,9 @@
-public class cat {
+public class Cat {
 
     //the cat meowing
     String name;
 
-    cat(String name) {
+    Cat(String name) {
         this.name = name;
     }
 

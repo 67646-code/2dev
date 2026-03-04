@@ -1,10 +1,14 @@
-public class pack {
+public class Pack {
+    /*
     dog name;
+
     int dognumber;
 
-    pack(int dognumber){
+    Pack(int dognumber){
         for (int i=0; i<dognumber; i++){
             
         }
     }
+
+*/
 }
