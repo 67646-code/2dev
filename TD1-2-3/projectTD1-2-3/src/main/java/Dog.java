@@ -9,6 +9,7 @@ public class Dog {
         this.name = name;
         this.weight = weight;
         this.hungry = isHungry();
+        this.injured = false;
     }
 
     boolean isHungry() {

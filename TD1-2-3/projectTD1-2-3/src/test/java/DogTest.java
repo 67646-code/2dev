@@ -39,4 +39,28 @@ class DogTest {
         Dog dog = new Dog("chien", 31);
         assertEquals("WOUUUF", dog.sound());
     }
+    @Test
+    void new_dog_not_injured(){
+        Dog dog = new Dog("chien",10);
+        assertFalse(dog.injured);
+    }
+    @Test
+    void run_after_run_is_hungry(){
+        Dog dog = new Dog("chien", 10);
+        dog.run();
+        assertTrue(dog.isHungry());
+    }
+    @Test
+    void eat_not_hungry_anymore(){
+        Dog dog = new Dog("chien",10);
+        dog.run();
+        dog.eat();
+        assertFalse(dog.isHungry());
+    }
+    @Test
+    void run_when_hungry_does_not_run_ISE(){
+        Dog dog = new Dog("chien",10);
+        dog.run();
+        assertThrows(IllegalStateException.class, () -> dog.run());
+    }
 }
