@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="TD4" />
         <module name="DEV2-TD1" />
+        <module name="Brol" />
       </profile>
     </annotationProcessing>
   </component>

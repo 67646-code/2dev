@@ -19,15 +19,13 @@ public class Dog {
     void run() {
         if (isHungry()) {
             throw new IllegalStateException(this.name + " a faim !");
-        }
-        else if (injured){
+        } else if (injured) {
             throw new IllegalStateException(" on fait pas courir un chien blessé");
-        }
-        else {
+        } else {
             System.out.println(this.name + " court comme un fou !");
             this.hungry = true;
-            randomx = (int)(Math.random() * 5);
-            if (randomx == 3){
+            randomx = (int) (Math.random() * 5);
+            if (randomx == 3) {
                 this.injured = true;
             }
         }
@@ -60,15 +58,23 @@ public class Dog {
             }
         }
     }
+
     String sound() {
         if (this.weight < 10) {
-             return "Yip yip";
-             }
-        else if (this.weight <= 30) {
-             return "Wouf";
-             }
-        else {
-             return "WOUUUF";
-             }
+            return "Yip yip";
+        } else if (this.weight <= 30) {
+            return "Wouf";
+        } else {
+            return "WOUUUF";
+        }
+    }
+
+    boolean isWeightBetween(int nb1, int nb2) {
+        if (nb1>nb2){
+            int swap = nb1;
+            nb1 = nb2;
+            nb2 = swap;
+        }
+        return this.weight >= nb1 && this.weight <= nb2 ;
     }
 }

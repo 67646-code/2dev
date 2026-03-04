@@ -53,6 +53,8 @@ public class Board {
     public void setLetters(int row, int col, Direction d,Letter[] letters){
         if (isRowColPossible(letters.length, row, col,d) && isRowColFree(letters, row, col,d)){
             if (d == Direction.HORIZONTAL) {
+                //for (letter l : letters){
+                //squares[row][col+letters.indexOf(l)] = l
                 for (int i = 0; i < letters.length; i++) {
                     squares[row][col+i] = letters[i];
                 }

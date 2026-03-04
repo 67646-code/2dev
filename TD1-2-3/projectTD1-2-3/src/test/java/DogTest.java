@@ -63,4 +63,62 @@ class DogTest {
         dog.run();
         assertThrows(IllegalStateException.class, () -> dog.run());
     }
+    @Test
+ void isWeightBetween_nb1_before_nb2_and_weigth_is_inside() {
+         Dog dog = new Dog("chien", 10);
+         assertTrue(dog.isWeightBetween(4,24));
+         }
+
+         @Test
+ void isWeightBetween_nb1_before_nb2_and_weigth_is_below() {
+         Dog dog = new Dog("chien", 12);
+         assertFalse(dog.isWeightBetween(13,24));
+         }
+
+         @Test
+ void isWeightBetween_nb1_before_nb2_and_weigth_is_above() {
+         Dog dog = new Dog("chien", 25);
+         assertFalse(dog.isWeightBetween(13,24));
+         }
+
+         @Test
+ void isWeightBetween_nb1_before_nb2_and_weigth_is_nb1() {
+         Dog dog = new Dog("chien", 13);
+         assertTrue(dog.isWeightBetween(13,24));
+         }
+
+         @Test
+ void isWeightBetween_nb1_before_nb2_and_weigth_is_nb2() {
+         Dog dog = new Dog("chien", 24);
+         assertTrue(dog.isWeightBetween(13,24));
+         }
+
+         @Test
+ void isWeightBetween_nb1_after_nb2_and_weigth_is_inside() {
+         Dog dog = new Dog("chien", 30);
+         assertTrue(dog.isWeightBetween(42,24));
+         }
+
+         @Test
+ void isWeightBetween_nb1_after_nb2_and_weigth_is_below() {
+         Dog dog = new Dog("chien", 23);
+         assertFalse(dog.isWeightBetween(33,24));
+         }
+    @Test
+ void isWeightBetween_nb1_after_nb2_and_weigth_is_above() {
+         Dog dog = new Dog("chien", 34);
+         assertFalse(dog.isWeightBetween(33,24));
+         }
+
+         @Test
+ void isWeightBetween_nb1_after_nb2_and_weigth_is_nb1() {
+         Dog dog = new Dog("chien", 33);
+         assertTrue(dog.isWeightBetween(33,24));
+         }
+
+         @Test
+ void isWeightBetween_nb1_after_nb2_and_weigth_is_nb2() {
+         Dog dog = new Dog("chien", 24);
+         assertTrue(dog.isWeightBetween(33,24));
+         }
 }
