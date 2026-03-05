@@ -12,6 +12,7 @@ public class App {
     private Board board = new Board();
     private Bag bag = new Bag();
     private BoardView view = new BoardView();
+    private int score = 0;
 
     public static void main(String[] args) {
         App myApp = new App();
@@ -24,6 +25,7 @@ public class App {
         String input = "";
         while (!input.equals("quit")){
             view.display(board);
+            view.displayScores(getScore());
             view.displayRack(this.rack);
             //System.out.println();
             input= in.nextLine();
@@ -39,16 +41,22 @@ public class App {
                 }
                 board.setLetters(Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]),d,letters );
                 for (Letter l : letters){
-                  rack.remove(l);
-                  rack.add(bag.draw());
+                    score = score + l.getValue();
+                    rack.remove(l);
+                    rack.add(bag.draw());
                 }
             }
             else if (tokens[0].equals("quit")){
                 System.out.println("Merci d'avoir joué :) ");
+                break;
             }
             else{
                 System.out.println("La commande n'a pas été entièrement entrée, veuillez recommencer! ");
             }
         }
+    }
+
+    public int getScore(){
+        return score;
     }
 }

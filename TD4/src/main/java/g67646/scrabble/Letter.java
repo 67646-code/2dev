@@ -6,10 +6,10 @@ public class Letter {
     private int value;
 
 
-    public Letter(char letter, int nmb, int Value){
+    public Letter(char letter, int nmb, int value){
         this.nmb = nmb;
         this.letter = letter;
-        this.value = Value;
+        this.value = value;
     }
 
     public char getLetter(){

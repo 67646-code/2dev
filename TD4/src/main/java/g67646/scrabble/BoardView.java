@@ -26,4 +26,7 @@ public class BoardView {
         }
         System.out.println();
     }
+    public void displayScores(int score){
+        System.out.println("Scores : " + score);
+    }
 }
