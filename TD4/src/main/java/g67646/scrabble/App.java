@@ -1,5 +1,7 @@
 package g67646.scrabble;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -25,18 +27,28 @@ public class App {
             view.displayRack(this.rack);
             //System.out.println();
             input= in.nextLine();
-            if (input.contains("set")){
-                input.replaceFirst("set"," ");
-                String[] elements = input.split("\\s+");
+            String[] tokens = input.split("\\s+");
+            Direction d = Direction.VERTICAL;
+            if (tokens[0].equals("set" )&& tokens.length > 4){
+                if (tokens[3].equals("h")){
+                    d = Direction.HORIZONTAL;
+                }
+                Letter[] letters = new Letter[tokens.length-4];
+                for (int i=0; i<letters.length; i++){
+                    letters[i] = rack.get(Integer.parseInt(tokens[i+4]));
+                }
+                board.setLetters(Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]),d,letters );
+                for (Letter l : letters){
+                  rack.remove(l);
+                  rack.add(bag.draw());
+                }
             }
-            else-if (input.length() != 13){
-                System.out.println("La commande n'a pas été entièrement entrée, veuillez recommencer!");
-            }
-            else{
+            else if (tokens[0].equals("quit")){
                 System.out.println("Merci d'avoir joué :) ");
             }
+            else{
+                System.out.println("La commande n'a pas été entièrement entrée, veuillez recommencer! ");
+            }
         }
-
     }
-
 }
