@@ -12,10 +12,13 @@ public class App {
     private Board board = new Board();
     private Bag bag = new Bag();
     private BoardView view = new BoardView();
+
     private int score = 0;
 
     public static void main(String[] args) {
         App myApp = new App();
+        Dictionary dictionary = new Dictionary();
+        // System.out.println(dictionary.isInDictionary("hello"));
         myApp.run();
     }
 
