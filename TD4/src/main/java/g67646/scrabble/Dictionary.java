@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Dictionary {
-    private List<String> words;
+    private final List<String> words;
 
     public Dictionary() {
         this.words = new ArrayList<>();
